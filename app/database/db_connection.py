@@ -22,11 +22,10 @@ def create_tables():
         is_available INT NOT NULL,
         borrowed_by_member_id INT);"""
     
-    members = """CREATE TABLE members ( 
+    members = """CREATE TABLE if not exists members ( 
             id INT AUTO_INCREMENT PRIMARY KEY, 
             name  VARCHAR(50) NOT NULL,
-            email VARCHAR(255) UNIQUE,  
-            name VARCHAR(255) NOT NULL, 
+            email VARCHAR(255) UNIQUE,   
             is_active BOOL NOT NULL,
             total_borrows INT NOT NULL  );"""
     cursor.execute(books)
