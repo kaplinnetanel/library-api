@@ -20,17 +20,19 @@ def get_summary():
 
 @router_reports.get("/books-by-genre") 
 def get_books_by_genre(genre:str):
-    if genre in ("Fiction","Non-Fiction","Science","History","Other"):
-        logger.info("Sending a request")
-        count = book.count_by_genre(genre) 
-        logger.info("Sending a request")
-        return count 
-    else:
-        raise HTTPException(404,"The request sent is incorrect.")
+    logger.info(f"Request to count books by genre: {genre}")
+    valid_genres = ("Fiction", "Non-Fiction", "Science", "History", "Other")
+    if genre not in valid_genres:
+        logger.error("Invalid genre provided")
+        raise HTTPException(status_code=400, detail="Invalid genre provided")    
+    count = book.count_by_genre(genre)
+    return {"genre": genre, "count": count}
 
 @router_reports.get("/top-member")
 def top_member():
-     logger.info("Request sent")
-     top = members.get_top_member() 
-     logger.info("We bring you who is at the top")
-     return top
+    logger.info("Fetching top member report")
+    top = members.get_top_member()
+    if not top:
+        logger.info({"message": "No data available"})
+        return {"message": "No data available"}
+    return top

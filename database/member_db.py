@@ -52,7 +52,7 @@ class MemberDB:
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
         sql =  "UPDATE members SET is_active=False WHERE id = %s; "
-        cursor.execute(sql,(id))
+        cursor.execute(sql,(id,))
         conn.commit()
         cursor.close()
         conn.close()
@@ -71,13 +71,13 @@ class MemberDB:
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
-        sql1 = "SELECT total_borrows FROM members WHERE id = %s;"
+        sql = "SELECT total_borrows FROM members WHERE id = %s;"
         cursor.execute(sql,(id,))
         result = cursor.fetchone()
         if result:
             t_borrows = result[0] + 1 
-            sql =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
-            cursor.execute(sql,(t_borrows,id))
+            sql_up =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
+            cursor.execute(sql_up,(t_borrows,id))
             conn.commit()
         cursor.close()
         conn.close()
@@ -86,7 +86,8 @@ class MemberDB:
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
-        sql1 = "SELECT count(*) FROM members WHERE is_active=True;"
+        sql = "SELECT count(*) FROM members WHERE is_active=True;"
+        cursor.execute(sql)
         resolt = cursor.fetchone()
         active  =  resolt + 1 
         cursor.close()

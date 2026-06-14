@@ -1,0 +1,144 @@
+2026-06-14 15:46:14,143 INFO Sending a request
+2026-06-14 15:56:33,019 INFO Sending a request
+2026-06-14 15:56:33,034 INFO Sending a request to the database
+2026-06-14 15:56:33,037 INFO The request was accepted.
+2026-06-14 15:57:55,547 INFO Request sent
+2026-06-14 15:57:55,559 INFO Sending a request to the database
+2026-06-14 15:57:55,576 INFO The request was accepted and a new user was created.
+2026-06-14 15:59:13,071 INFO Request sent
+2026-06-14 15:59:13,081 INFO Sending a request to the database
+2026-06-14 15:59:13,091 INFO The request was accepted and a new user was created.
+2026-06-14 15:59:14,420 INFO Request sent
+2026-06-14 15:59:14,432 INFO Sending a request to the database
+2026-06-14 15:59:19,530 INFO Request sent
+2026-06-14 15:59:19,541 INFO Sending a request to the database
+2026-06-14 16:03:06,944 INFO Request sent
+2026-06-14 16:03:06,956 INFO Sending a request to the database
+2026-06-14 16:04:25,241 INFO Request sent
+2026-06-14 16:04:25,251 INFO Sending a request to the database
+2026-06-14 16:04:25,253 INFO Request accepted
+2026-06-14 16:04:26,283 INFO Request sent
+2026-06-14 16:04:26,296 INFO Sending a request to the database
+2026-06-14 16:04:26,297 INFO Request accepted
+2026-06-14 16:20:37,544 INFO Request sent
+2026-06-14 16:20:37,560 INFO Sending a request to the database
+2026-06-14 16:20:37,562 INFO Request accepted
+2026-06-14 16:20:43,169 INFO Request sent
+2026-06-14 16:20:43,181 INFO Sending a request to the database
+2026-06-14 16:20:43,182 INFO Request accepted
+2026-06-14 16:21:32,262 INFO Sending a request to the database
+2026-06-14 16:27:52,786 INFO Sending a request to the database
+2026-06-14 16:29:49,813 INFO Sending a request to the database
+2026-06-14 16:30:16,565 INFO Sending a request to the database
+2026-06-14 16:30:16,580 INFO Sending a request to the database
+2026-06-14 16:30:43,270 INFO Sending a request to the database
+2026-06-14 16:30:43,278 INFO Sending a request to the database
+2026-06-14 16:30:43,286 INFO Sending a request to the database
+2026-06-14 16:31:31,242 INFO Request sent
+2026-06-14 16:31:31,253 INFO Sending a request to the database
+2026-06-14 16:35:35,942 INFO Request sent
+2026-06-14 16:35:35,954 INFO Sending a request to the database
+2026-06-14 16:35:45,240 INFO Request sent
+2026-06-14 16:35:45,250 INFO Sending a request to the database
+2026-06-14 16:35:46,064 INFO Request sent
+2026-06-14 16:35:46,079 INFO Sending a request to the database
+2026-06-14 16:44:56,047 INFO Request sent
+2026-06-14 16:44:56,059 INFO Sending a request to the database
+2026-06-14 16:44:56,060 INFO We bring you who is at the top
+2026-06-14 17:01:44,734 INFO Sending a request
+2026-06-14 17:07:13,991 INFO Sending a request
+2026-06-14 17:08:14,337 INFO Sending a request
+2026-06-14 17:08:15,175 INFO Sending a request
+2026-06-14 17:08:15,349 INFO Sending a request
+2026-06-14 17:08:15,534 INFO Sending a request
+2026-06-14 17:08:15,701 INFO Sending a request
+2026-06-14 17:08:15,930 INFO Sending a request
+2026-06-14 17:08:34,174 INFO Sending a request
+2026-06-14 17:08:35,151 INFO Sending a request
+2026-06-14 17:11:04,214 INFO Sending a request
+2026-06-14 17:13:14,811 INFO Sending a request
+2026-06-14 17:13:15,622 INFO Sending a request
+2026-06-14 17:13:15,844 INFO Sending a request
+2026-06-14 17:13:54,609 INFO Sending a request
+2026-06-14 17:13:55,705 INFO Sending a request
+2026-06-14 17:14:53,860 INFO Sending a request
+2026-06-14 17:14:53,880 INFO The new book was created
+2026-06-14 17:15:23,017 INFO Sending a request
+2026-06-14 17:15:23,033 INFO The new book was created
+2026-06-14 17:16:13,659 INFO Sending a request
+2026-06-14 17:16:13,677 INFO The new book was created
+2026-06-14 17:16:26,389 INFO Sending a request
+2026-06-14 17:16:26,401 INFO Sending a request to the database
+2026-06-14 17:16:26,403 INFO The request was accepted.
+2026-06-14 17:27:36,141 INFO Sending a request
+2026-06-14 17:27:36,155 INFO Sending a request to the database
+2026-06-14 17:27:36,157 INFO Sending a request
+2026-06-14 17:28:57,098 INFO Sending a request
+2026-06-14 17:28:57,107 INFO Sending a request to the database
+2026-06-14 17:28:57,113 ERROR Not sent to correct val
+2026-06-14 17:28:57,113 INFO The request sent is incorrect.
+2026-06-14 17:32:57,668 INFO Request sent
+2026-06-14 17:32:57,678 INFO Sending a request to the database
+2026-06-14 17:34:20,191 INFO Request sent
+2026-06-14 17:37:53,868 INFO Request sent
+2026-06-14 17:37:53,879 INFO Sending a request to the database
+2026-06-14 17:37:53,880 ERROR Not sent to correct val
+2026-06-14 17:37:53,880 INFO The number of books borrowed increased by one.
+2026-06-14 17:38:45,685 INFO Sending a request
+2026-06-14 17:38:45,697 INFO Sending a request to the database
+2026-06-14 17:38:45,698 ERROR Not sent to correct val
+2026-06-14 17:38:45,698 INFO The request sent is incorrect.
+2026-06-14 17:49:15,455 INFO Request sent
+2026-06-14 17:49:15,464 INFO Sending a request to the database
+2026-06-14 17:49:15,464 ERROR Not sent to correct val
+2026-06-14 17:49:15,465 INFO The number of books borrowed increased by one.
+2026-06-14 17:49:29,132 INFO Sending a request
+2026-06-14 17:49:29,148 INFO Sending a request to the database
+2026-06-14 17:49:29,149 ERROR Not sent to correct val
+2026-06-14 17:49:29,149 INFO The request sent is incorrect.
+2026-06-14 17:49:47,426 INFO Request sent
+2026-06-14 17:49:47,438 INFO Sending a request to the database
+2026-06-14 17:49:47,439 ERROR Not sent to correct val
+2026-06-14 17:49:47,439 INFO The number of books borrowed increased by one.
+2026-06-14 22:16:32,697 INFO Request sent
+2026-06-14 22:16:32,713 INFO Sending a request to the database
+2026-06-14 22:16:32,715 ERROR Not sent to correct val
+2026-06-14 22:16:32,716 INFO The number of books borrowed increased by one.
+2026-06-14 22:16:34,137 INFO Request sent
+2026-06-14 22:16:34,186 INFO Sending a request to the database
+2026-06-14 22:16:34,190 ERROR Not sent to correct val
+2026-06-14 22:16:34,191 INFO The number of books borrowed increased by one.
+2026-06-14 23:58:24,443 INFO Request sent to create a new member
+2026-06-14 23:58:24,469 INFO Sending a request to the database
+2026-06-14 23:58:24,499 INFO The request was accepted and a new user was created.
+2026-06-14 23:59:15,409 INFO Sending a request
+2026-06-14 23:59:15,446 INFO The new book was created
+2026-06-14 23:59:19,703 INFO Sending a request
+2026-06-14 23:59:19,773 INFO The new book was created
+2026-06-15 00:00:02,006 INFO Sending a request
+2026-06-15 00:00:02,029 INFO Sending a request to the database
+2026-06-15 00:00:02,035 ERROR Book is already available
+2026-06-15 00:01:42,712 INFO Request sent
+2026-06-15 00:01:42,740 INFO Sending a request to the database
+2026-06-15 00:01:42,766 INFO Sending a request to the database
+2026-06-15 00:01:42,770 ERROR Member not found
+2026-06-15 00:01:57,638 INFO Request sent
+2026-06-15 00:01:57,658 INFO Sending a request to the database
+2026-06-15 00:01:57,673 INFO Sending a request to the database
+2026-06-15 00:01:57,675 ERROR Member not found
+2026-06-15 00:04:04,809 INFO Request sent
+2026-06-15 00:04:04,829 INFO Sending a request to the database
+2026-06-15 00:04:04,831 INFO Request accepted
+2026-06-15 00:05:00,302 INFO Request sent
+2026-06-15 00:05:00,321 INFO Sending a request to the database
+2026-06-15 00:05:00,342 INFO Sending a request to the database
+2026-06-15 00:05:00,360 INFO Sending a request to the database
+2026-06-15 00:05:00,362 ERROR Not sent to correct val
+2026-06-15 00:05:00,380 INFO Sending a request to the database
+2026-06-15 00:10:24,055 INFO Request sent
+2026-06-15 00:10:24,071 INFO Sending a request to the database
+2026-06-15 00:10:24,092 INFO Sending a request to the database
+2026-06-15 00:10:24,113 INFO Sending a request to the database
+2026-06-15 00:10:24,115 ERROR Not sent to correct val
+2026-06-15 00:10:24,130 INFO Sending a request to the database
+2026-06-15 00:10:24,147 INFO Book 1 borrowed successfully
