@@ -6,9 +6,9 @@ create_tables()
 
 app = FastAPI()
 
-app.include_router(book_routes.router_book,prefix="/books")
-app.include_router(member_routes.router_members,prefix="/members")
-app.include_router(report_routes.router_reports,prefix="/reports")
+app.include_router(book_routes.router_book,prefix="/books",tags=["books"])
+app.include_router(member_routes.router_members,prefix="/members",tags=["members"])
+app.include_router(report_routes.router_reports,prefix="/reports",tags=["reports"])
 
 
 if "name" == "__main__":

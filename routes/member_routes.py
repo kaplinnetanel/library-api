@@ -11,7 +11,7 @@ router_members = APIRouter()
 members = MemberDB()
 
 
-@router_members.put("")
+@router_members.post("")
 def postcreate_member(data:dict):
         logger.info("Request sent")
         members.create_member(data)

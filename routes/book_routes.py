@@ -14,6 +14,12 @@ members = MemberDB()
 
 book = BOOKDB()
 
+@router_book.post("")
+def creat_book(titel:str,author:str,genre:str,):
+    logger.info("Sending a request")
+    book.create_book(titel,author,genre)
+    logger.info("The new book was created")
+
 @router_book.get("")
 def get_all():
     logger.info("Sending a request")
@@ -42,12 +48,7 @@ def set_available_return(id:int , member_id:int):
     book.set_available(id, "return", member_id)
     logger.info("The request sent is incorrect.") 
     
-
-@router_book.put("/{id}//borrow/{member_id}")
-def set_available_borrow(id:int , member_id:int):
-    book.set_available(id, "borrow", member_id) 
-
-@router_book.put("/{id}/borrow/{ member_id}")
+@router_book.put("/{id}/borrow/{member_id}")
 def increment_borrows_book(id):
     logger.info("Request sent")
     members.increment_borrows(id)

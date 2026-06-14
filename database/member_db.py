@@ -20,7 +20,7 @@ class MemberDB:
 
     def get_all_members(self):
         conn = get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
         cursor.execute("SELECT * FROM members;")
         rows = cursor.fetchall()
@@ -30,7 +30,7 @@ class MemberDB:
     
     def get_member_by_id(self,id) :
         conn = get_connection()
-        cursor = conn.cursor()
+        cursor = conn.cursor(dictionary=True)
         logger.info("Sending a request to the database")
         cursor.execute("SELECT * FROM members WHERE id = %s;",(id,))
         row = cursor.fetchone()
@@ -63,7 +63,7 @@ class MemberDB:
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
         sql =  "UPDATE members SET is_active=True WHERE id = %s; "
-        cursor.execute(sql,(id))
+        cursor.execute(sql,(id,))
         conn.commit()
         cursor.close()
         conn.close()
@@ -73,11 +73,11 @@ class MemberDB:
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
         sql1 = "SELECT total_borrows FROM members WHERE id = %s;"
-        cursor.execute(sql,(id))
+        cursor.execute(sql,(id,))
         total_borrows = cursor.fetchone()
         t_borrows = total_borrows[0] + 1 
         sql =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
-        cursor.execute(sql,(t_borrows))
+        cursor.execute(sql,(t_borrows,))
         conn.commit()
         cursor.close()
         conn.close()
@@ -100,12 +100,17 @@ class MemberDB:
         cursor.execute("SELECT MAX(total_borrows) FROM members;")
         best_borrows = cursor.fetchone()
         b_borrows = best_borrows[0]
+        if not b_borrows:
+            cursor.close()
+            conn.close()
+            return None
+
         sql = "SELECT * FROM members WHERE total_borrows = %s;"
-        cursor.execute(sql, b_borrows)
-        best = cursor.fetchone()
+        cursor.execute(sql,(b_borrows,))
+        b = cursor.fetchone()
         cursor.close()
         conn.close()
-        return best
+        return b
 
 
 
