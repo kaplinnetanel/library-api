@@ -14,7 +14,7 @@ def get_connection():
 def create_tables():
     conn = get_connection()
     cursor = conn.cursor()
-    books = """CREATE TABLE IF NOT EXISTS books (
+    books = """CREATE TABLE if not exists books (
         id INT AUTO_INCREMENT PRIMARY KEY,
         titel varchar(50) NOT NULL,
         author varchar(50) NOT NULL,
@@ -22,7 +22,7 @@ def create_tables():
         is_available INT NOT NULL,
         borrowed_by_member_id INT);"""
     
-    members = """CREATE TABLE IF NOT EXISTS members ( 
+    members = """CREATE TABLE if not exists members ( 
             id INT AUTO_INCREMENT PRIMARY KEY, 
             name  VARCHAR(50) NOT NULL,
             email VARCHAR(255) UNIQUE,   
