@@ -1,6 +1,5 @@
 from database.db_connection import get_connection
 import logging
-logger = logging.basicConfig(filename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
 
 logger = logging.getLogger(__name__)
 
@@ -38,12 +37,12 @@ class MemberDB:
         conn.close()
         return row
 
-    def update_member(self,id, data):
+    def update_member(self, id, data):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
-        sql = "UPDATE members SET name = %s ,email = %s WHERE id = %s,is_active=True,total_borrows=0; "
-        cursor.execute(sql,(data["name"],data["email"],id))
+        sql = "UPDATE members SET name = %s, email = %s WHERE id = %s;"
+        cursor.execute(sql, (data["name"], data["email"], id))
         conn.commit()
         cursor.close()
         conn.close()
@@ -74,11 +73,12 @@ class MemberDB:
         logger.info("Sending a request to the database")
         sql1 = "SELECT total_borrows FROM members WHERE id = %s;"
         cursor.execute(sql,(id,))
-        total_borrows = cursor.fetchone()
-        t_borrows = total_borrows[0] + 1 
-        sql =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
-        cursor.execute(sql,(t_borrows,))
-        conn.commit()
+        result = cursor.fetchone()
+        if result:
+            t_borrows = result[0] + 1 
+            sql =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
+            cursor.execute(sql,(t_borrows,id))
+            conn.commit()
         cursor.close()
         conn.close()
 

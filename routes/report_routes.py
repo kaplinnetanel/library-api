@@ -3,8 +3,6 @@ from database.member_db import MemberDB
 from database.book_db import BOOKDB
 import logging
 
-logger = logging.basicConfig(filename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
-
 logger = logging.getLogger(__name__)
 
 

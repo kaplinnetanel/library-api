@@ -3,8 +3,6 @@ from database.db_connection import get_connection
 import mysql
 import logging
 
-logger = logging.basicConfig(filename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
-
 logger = logging.getLogger(__name__)
 
 class BOOKDB:
@@ -17,7 +15,7 @@ class BOOKDB:
         cursor.close()
         conn.close()
         conn.close()
-        return "The book was created"
+        return f"create_book:{titel} "
         
     def get_all_books(self):
         conn = get_connection()
@@ -58,7 +56,7 @@ class BOOKDB:
             if val == "return":
                 logger.info("Sending a request to the database")
                 sql =""" UPDATE books 
-                SET is_available = True , borrowed_by_member_id = NULL
+                SET title =  is_available = True , borrowed_by_member_id = NULL
                 WHERE id = %s;"""
                 cursor.execute(sql,(id,))
                 conn.commit()
