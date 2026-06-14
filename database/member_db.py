@@ -1,13 +1,13 @@
-from db_connection import get_connection
+from database.db_connection import get_connection
 import logging
-logger = logging.basicConfig(ilename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
+logger = logging.basicConfig(filename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
 
 logger = logging.getLogger(__name__)
 
 
 class MemberDB:
 
-    def create_member(data):
+    def create_member(self,data):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -18,8 +18,7 @@ class MemberDB:
         cursor.close()
         conn.close()
 
-
-    def get_all_members():
+    def get_all_members(self):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -29,18 +28,17 @@ class MemberDB:
         conn.close()
         return rows
     
-    def get_member_by_id(id) :
+    def get_member_by_id(self,id) :
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
-        cursor.execute("SELECT * FROM members WHERE id = %s;",(id))
+        cursor.execute("SELECT * FROM members WHERE id = %s;",(id,))
         row = cursor.fetchone()
         cursor.close()
         conn.close()
         return row
 
-
-    def update_member(id, data):
+    def update_member(self,id, data):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -50,10 +48,7 @@ class MemberDB:
         cursor.close()
         conn.close()
 
-
-
-
-    def deactivate_member(id):
+    def deactivate_member(self,id):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -63,8 +58,7 @@ class MemberDB:
         cursor.close()
         conn.close()
 
-
-    def activate_member(id) :
+    def activate_member(self,id) :
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -74,8 +68,7 @@ class MemberDB:
         cursor.close()
         conn.close()
 
-
-    def increment_borrows(id) :
+    def increment_borrows(self,id) :
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -89,7 +82,7 @@ class MemberDB:
         cursor.close()
         conn.close()
 
-    def  count_active_members() :
+    def  count_active_members(self) :
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -100,7 +93,7 @@ class MemberDB:
         conn.close()
         return active
     
-    def get_top_member():
+    def get_top_member(self):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
