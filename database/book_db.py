@@ -1,14 +1,14 @@
 
-from db_connection import get_connection
+from database.db_connection import get_connection
 import mysql
 import logging
 
-logger = logging.basicConfig(ilename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
+logger = logging.basicConfig(filename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
 
 logger = logging.getLogger(__name__)
 
 class BOOKDB:
-    def create_book(titel:str,author:str,genre:str,is_available:bool,borrowed_by_member_id:int):
+    def create_book(self,titel:str,author:str,genre:str,is_available:bool,borrowed_by_member_id:int):
         conn = get_connection()
         cursor = conn.cursor()
         sql =("INSERT INTO table_name (titel,author,genre,is_available,borrowed_by_member_id)VALUES (%s,%s,%s,%s,%s);")
@@ -20,7 +20,7 @@ class BOOKDB:
         conn.close()
 
         
-    def get_all_books():
+    def get_all_books(self):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -30,7 +30,7 @@ class BOOKDB:
         conn.close()
         return rows
 
-    def get_book_by_id(id):
+    def get_book_by_id(self,id):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -40,7 +40,7 @@ class BOOKDB:
         conn.close()
         return row
     
-    def update_book(id:int,body : dict):
+    def update_book(self,id:int,body : dict):
         conn = get_connection()
         cursor = conn.cursor()
         logger.info("Sending a request to the database")
@@ -52,7 +52,7 @@ class BOOKDB:
         cursor.close()
         conn.close()
 
-    def set_available(id : int , val ,number_id ):
+    def set_available(self,id : int , val ,number_id ):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         try:
@@ -87,7 +87,7 @@ class BOOKDB:
             print(e)
     
     
-    def count_total_books():
+    def count_total_books(self):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -98,7 +98,7 @@ class BOOKDB:
         conn.close()
         return count
 
-    def count_available_books():
+    def count_available_books(self):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -109,7 +109,7 @@ class BOOKDB:
         conn.close()
         return count
 
-    def count_borrowed_books(): 
+    def count_borrowed_books(self): 
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -120,7 +120,7 @@ class BOOKDB:
         conn.close()
         return count
 
-    def count_by_genre(genre:str):
+    def count_by_genre(self,genre:str):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
@@ -132,7 +132,7 @@ class BOOKDB:
         conn.close()
         return count
 
-    def count_active_borrows_by_member(member_id):
+    def count_active_borrows_by_member(self,member_id):
         conn = get_connection()
         cursor = conn.cursor(dictionary= True)
         logger.info("Sending a request to the database")
