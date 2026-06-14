@@ -1,0 +1,119 @@
+from db_connection import get_connection
+import logging
+logger = logging.basicConfig(ilename='myapp.log', level=logging.INFO,format= "%(asctime)s %(levelname)s %(message)s" )
+
+logger = logging.getLogger(__name__)
+
+
+class MemberDB:
+
+    def create_member(data):
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql = """INSERT INTO members (name,email,is_active,total_borrows)
+        VALUES (%s,%s,%s,%s);"""
+        cursor.execute(sql,(data["name"],data["email"],True,0))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+    def get_all_members():
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        cursor.execute("SELECT * FROM members;")
+        rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return rows
+    
+    def get_member_by_id(id) :
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        cursor.execute("SELECT * FROM members WHERE id = %s;",(id))
+        row = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return row
+
+
+    def update_member(id, data):
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql = "UPDATE members SET name = %s ,email = %s WHERE id = %s,is_active=True,total_borrows=0; "
+        cursor.execute(sql,(data["name"],data["email"],id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+
+
+    def deactivate_member(id):
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql =  "UPDATE members SET is_active=False WHERE id = %s; "
+        cursor.execute(sql,(id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+    def activate_member(id) :
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql =  "UPDATE members SET is_active=True WHERE id = %s; "
+        cursor.execute(sql,(id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+
+    def increment_borrows(id) :
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql1 = "SELECT total_borrows FROM members WHERE id = %s;"
+        cursor.execute(sql,(id))
+        total_borrows = cursor.fetchone()
+        t_borrows = total_borrows[0] + 1 
+        sql =  "UPDATE members SET total_borrows = %s WHERE id = %s; "
+        cursor.execute(sql,(t_borrows))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+    def  count_active_members() :
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        sql1 = "SELECT count(*) FROM members WHERE is_active=True;"
+        resolt = cursor.fetchone()
+        active  =  resolt + 1 
+        cursor.close()
+        conn.close()
+        return active
+    
+    def get_top_member():
+        conn = get_connection()
+        cursor = conn.cursor()
+        logger.info("Sending a request to the database")
+        cursor.execute("SELECT MAX(total_borrows) FROM members;")
+        best_borrows = cursor.fetchone()
+        b_borrows = best_borrows[0]
+        sql = "SELECT * FROM members WHERE total_borrows = %s;"
+        cursor.execute(sql, b_borrows)
+        best = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return best
+
+
+
+
