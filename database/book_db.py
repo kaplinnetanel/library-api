@@ -58,7 +58,7 @@ class BOOKDB:
             if val == "return":
                 logger.info("Sending a request to the database")
                 sql =""" UPDATE books 
-                SET title =  is_available = True , borrowed_by_member_id = NULL
+                SET is_available = True , borrowed_by_member_id = NULL
                 WHERE id = %s;"""
                 cursor.execute(sql,(id,))
                 conn.commit()

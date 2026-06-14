@@ -47,9 +47,11 @@ def set_available_return(id:int , member_id:int):
     logger.info("Sending a request")
     book.set_available(id, "return", member_id)
     logger.info("The request sent is incorrect.") 
+
+
     
 @router_book.put("/{id}/borrow/{member_id}")
-def increment_borrows_book(id):
+def increment_borrows_book(id:int,member_id:int):
     logger.info("Request sent")
-    members.increment_borrows(id)
+    book.set_available(id,"borrow",member_id)
     logger.info("The number of books borrowed increased by one.")
